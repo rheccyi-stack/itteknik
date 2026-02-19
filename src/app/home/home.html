@@ -1,0 +1,80 @@
+<div class="page">
+  <section class="login-card" *ngIf="!isLoggedIn">
+    <h1>itteknik.com Login</h1>
+    <p class="subtitle">Use your account to enter the dashboard.</p>
+
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm" novalidate>
+      <label for="email">Email</label>
+      <input id="email" type="email" name="email" [(ngModel)]="email" required placeholder="you@example.com" />
+
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+        minlength="6"
+        placeholder="Enter your password"
+      />
+
+      <button type="submit">Log In</button>
+    </form>
+
+    <p class="hint">Demo admin: admin@example.com / admin123</p>
+    <p class="hint">Demo user: user@example.com / user123</p>
+    <p class="message" [class.error]="isError" *ngIf="message">{{ message }}</p>
+  </section>
+
+  <section class="dashboard-card" *ngIf="isLoggedIn">
+    <div class="dashboard-head">
+      <div>
+        <h2>Dashboard</h2>
+        <p class="subtitle">Logged in as: <strong>{{ role }}</strong></p>
+      </div>
+      <button type="button" class="logout-btn" (click)="logout()">Logout</button>
+    </div>
+
+    <div *ngIf="role === 'admin'; else userView" class="admin-grid">
+      <div class="panel">
+        <h3>Code Workspace</h3>
+        <label for="codeTitle">Title</label>
+        <input id="codeTitle" name="codeTitle" [(ngModel)]="codeTitle" placeholder="Example: Header component" />
+
+        <label for="codeValue">Code</label>
+        <textarea
+          id="codeValue"
+          name="codeValue"
+          [(ngModel)]="codeValue"
+          rows="12"
+          placeholder="Ilagay ang code mo dito..."
+        ></textarea>
+
+        <button type="button" (click)="saveSnippet()">Save Code</button>
+      </div>
+
+      <div class="panel">
+        <h3>Saved Snippets</h3>
+        <p class="subtitle" *ngIf="snippets.length === 0">Wala pang saved code.</p>
+        <article class="snippet" *ngFor="let snippet of snippets; index as i">
+          <div class="snippet-head">
+            <h4>{{ snippet.title }}</h4>
+            <button type="button" class="delete-btn" (click)="deleteSnippet(i)">Delete</button>
+          </div>
+          <small>Updated: {{ snippet.updatedAt }}</small>
+          <pre><code>{{ snippet.code }}</code></pre>
+        </article>
+      </div>
+    </div>
+
+    <ng-template #userView>
+      <div class="panel">
+        <h3>Standard User</h3>
+        <p>Pwede ka mag-login, pero admin lang ang may access sa code workspace.</p>
+      </div>
+    </ng-template>
+
+    <p class="message" [class.error]="isError" *ngIf="message">{{ message }}</p>
+  </section>
+</div>
+
