@@ -1,10 +1,10 @@
 <div class="page">
   <section class="login-card" *ngIf="!isLoggedIn">
-    <h1>itteknik.com Login</h1>
+    <h1>Hackeran Login</h1>
     <p class="subtitle">Use your account to enter the dashboard.</p>
 
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm" novalidate>
-      <label for="email">Email</label>
+      <label for="email">Admin</label>
       <input id="email" type="email" name="email" [(ngModel)]="email" required />
 
       <label for="password">Password</label>
@@ -45,7 +45,7 @@
           name="codeValue"
           [(ngModel)]="codeValue"
           rows="12"
-          placeholder="Ilagay ang code mo dito..."
+          placeholder="Write your code here..."
         ></textarea>
 
         <button type="button" (click)="saveSnippet()">Save Code</button>
@@ -53,7 +53,7 @@
 
       <div class="panel">
         <h3>Saved Snippets</h3>
-        <p class="subtitle" *ngIf="snippets.length === 0">Wala pang saved code.</p>
+        <p class="subtitle" *ngIf="snippets.length === 0">No saved code yet.</p>
         <article class="snippet" *ngFor="let snippet of snippets; index as i">
           <div class="snippet-head">
             <h4>{{ snippet.title }}</h4>
@@ -68,7 +68,7 @@
     <ng-template #userView>
       <div class="panel">
         <h3>Standard User</h3>
-        <p>Pwede ka mag-login, pero admin lang ang may access sa code workspace.</p>
+        <p>You can sign in, but only admin can access the code workspace.</p>
       </div>
     </ng-template>
 

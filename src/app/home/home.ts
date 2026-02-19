@@ -33,7 +33,7 @@ export class HomeComponent {
 
   onSubmit() {
     if (!this.email || !this.password) {
-      this.message = 'Pakilagay ang email at password.';
+      this.message = 'Please enter your email and password.';
       this.isError = true;
       return;
     }
@@ -84,7 +84,7 @@ export class HomeComponent {
     }
 
     if (!this.codeTitle.trim() || !this.codeValue.trim()) {
-      this.message = 'Lagyan ng title at code bago i-save.';
+      this.message = 'Please enter both a title and code before saving.';
       this.isError = true;
       return;
     }
