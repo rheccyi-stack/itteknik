@@ -20,7 +20,7 @@ export class HomeComponent {
   codeTitle = '';
   codeValue = '';
   snippets: Array<{ title: string; code: string; updatedAt: string }> = [];
-  private readonly adminEmail = 'admin';
+  private readonly adminEmail = 'hackeran';
   private readonly adminPassword = 'syntaxerror';
   private readonly userEmail = 'user@example.com';
   private readonly userPassword = 'user123';
