@@ -15,7 +15,7 @@
         [(ngModel)]="password"
         required
         minlength="6"
-        placeholder="admin"
+        placeholder="password"
       />
 
       <button type="submit">Log In</button>
@@ -37,7 +37,7 @@
       <div class="panel">
         <h3>Code Workspace</h3>
         <label for="codeTitle">Title</label>
-        <input id="codeTitle" name="codeTitle" [(ngModel)]="codeTitle" placeholder="admin" />
+        <input id="codeTitle" name="codeTitle" [(ngModel)]="codeTitle" placeholder="Example: Header component" />
 
         <label for="codeValue">Code</label>
         <textarea
@@ -45,7 +45,7 @@
           name="codeValue"
           [(ngModel)]="codeValue"
           rows="12"
-          placeholder="admin"
+          placeholder="Write your code here..."
         ></textarea>
 
         <button type="button" (click)="saveSnippet()">Save Code</button>
@@ -75,5 +75,6 @@
     <p class="message" [class.error]="isError" *ngIf="message">{{ message }}</p>
   </section>
 </div>
+
 
 
