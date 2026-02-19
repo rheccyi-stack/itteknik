@@ -5,7 +5,7 @@
 
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm" novalidate>
       <label for="email">Admin</label>
-      <input id="email" type="email" name="email" [(ngModel)]="email" required />
+      <input id="email" type="text" name="email" [(ngModel)]="email" required />
 
       <label for="password">Password</label>
       <input
@@ -15,7 +15,7 @@
         [(ngModel)]="password"
         required
         minlength="6"
-        placeholder="Enter your password"
+        placeholder="admin"
       />
 
       <button type="submit">Log In</button>
@@ -37,7 +37,7 @@
       <div class="panel">
         <h3>Code Workspace</h3>
         <label for="codeTitle">Title</label>
-        <input id="codeTitle" name="codeTitle" [(ngModel)]="codeTitle" placeholder="Example: Header component" />
+        <input id="codeTitle" name="codeTitle" [(ngModel)]="codeTitle" placeholder="admin" />
 
         <label for="codeValue">Code</label>
         <textarea
@@ -45,7 +45,7 @@
           name="codeValue"
           [(ngModel)]="codeValue"
           rows="12"
-          placeholder="Write your code here..."
+          placeholder="admin"
         ></textarea>
 
         <button type="button" (click)="saveSnippet()">Save Code</button>
@@ -75,4 +75,5 @@
     <p class="message" [class.error]="isError" *ngIf="message">{{ message }}</p>
   </section>
 </div>
+
 

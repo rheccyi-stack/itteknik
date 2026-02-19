@@ -20,7 +20,7 @@ export class HomeComponent {
   codeTitle = '';
   codeValue = '';
   snippets: Array<{ title: string; code: string; updatedAt: string }> = [];
-  private readonly adminEmail = 'rheccyi@gmail.com';
+  private readonly adminEmail = 'admin';
   private readonly adminPassword = 'syntaxerror';
   private readonly userEmail = 'user@example.com';
   private readonly userPassword = 'user123';
@@ -33,14 +33,7 @@ export class HomeComponent {
 
   onSubmit() {
     if (!this.email || !this.password) {
-      this.message = 'Please enter your email and password.';
-      this.isError = true;
-      return;
-    }
-
-    const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailFormat.test(this.email)) {
-      this.message = 'Invalid email format.';
+      this.message = 'Please enter your admin name and password.';
       this.isError = true;
       return;
     }
@@ -141,3 +134,4 @@ export class HomeComponent {
     localStorage.setItem(this.storageKey, JSON.stringify(value));
   }
 }
+
